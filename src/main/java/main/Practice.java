@@ -17,18 +17,18 @@ public class Practice {
 
     /**
      * 1. feladat - 2p
-     *
+     * <p>
      * A különböző osztályú űrhajókat a csatákra úgy készítik fel, hogy pajzzsal látják el őket.
-     *
+     * <p>
      * Az űrhajó-osztályok és a pajzsuk ereje:
-     *      Intrepid: 100
-     *      Nova: 200
-     *      Raven: 300
-     *      Galaxy: 500
-     *      Dreadnought: 800
-     *
+     * Intrepid: 100
+     * Nova: 200
+     * Raven: 300
+     * Galaxy: 500
+     * Dreadnought: 800
+     * <p>
      * Más osztályú űrhajók nem kapnak pajzsot.
-     *
+     * <p>
      * Valósítsd meg a "getShieldPower" nevű metódust!
      * A metódus adja vissza, hogy az adott osztályú űrhajó milyen erős pajzzsal rendelkezik.
      *
@@ -36,8 +36,34 @@ public class Practice {
      * @return a pajzs ereje
      */
     public static int getShieldPower(String shipClass) {
-        return -1;
+        switch (shipClass) {
+            case "Intrepid":
+                return 100;
+
+
+            case "Nova":
+                return 200;
+
+
+            case "Raven":
+                return 300;
+
+
+            case "Glaxy":
+                return 500;
+
+
+            case "Dreadnought":
+                return 800;
+
+
+            default:
+                return -1;
+
+
+        }
     }
+
 
     /**
      * 2. feladat - 2p
@@ -56,8 +82,12 @@ public class Practice {
      * @return az elvárt szint
      */
     public static double countRequirement(int[] scores) {
-        return 0.0;
+        return (scores[0] + scores[scores.length-1])/2;
     }
+
+
+
+
 
     /**
      * 3. feladat - 3p
@@ -77,8 +107,14 @@ public class Practice {
      * @return a hajó harcképes-e
      */
     public static boolean isShipAbleToFight(int shieldCharge, int weaponCharge) {
+        if (shieldCharge > 20 && weaponCharge > 20 && ((shieldCharge + weaponCharge)) / 2 > 50) {
+            return true;
+        }
         return false;
     }
+
+
+
 
     /**
      * 4. feladat - 3p
@@ -108,8 +144,14 @@ public class Practice {
      * @param requiredRabbits a megrendelt űrnyulak száma
      * @return a megrendelés teljesítéséhez szükséges napok száma
      */
-    public static int getSpaceRabbitDays(int startRabbitValue, int requiredRabbits) {
-        return -1;
+   public static int getSpaceRabbitDays(int startRabbitValue, int requiredRabbits) {
+       int numberOfDays= 1;
+       while (startRabbitValue != requiredRabbits) {
+           startRabbitValue *=2;
+           numberOfDays ++;
+       }
+
+        return numberOfDays;
     }
 
     /**
@@ -128,7 +170,12 @@ public class Practice {
      * @return a teljes sereg száma
      */
     public static int sumArmy(int[] armyOfPlanets) {
-        return -1;
+        int sum = 0;
+        for (int i = 0; i < armyOfPlanets.length; i++) {
+            sum += armyOfPlanets [i];
+
+        }
+        return sum;
     }
 
     /**
@@ -146,9 +193,12 @@ public class Practice {
      * @param battles a csaták kimenetelét tartalmazó tömb
      * @return a megnyert csaták darabszáma
      */
-    public static int countVictories(int[] battles) {
+   public static int countVictories(int[] battles) {
+
+
+
         return -1;
-    }
+   }
 
     /**
      * 7. feladat - 4p
@@ -163,9 +213,9 @@ public class Practice {
      *
      * @param heights a kadétok magassága
      */
-    public static boolean isInAscendingOrder(int[] heights) {
-        return false;
-    }
+  //  public static boolean isInAscendingOrder(int[] heights) {
+    //    return false;
+    //}
 
     /**
      * 8. feladat - 4p
@@ -188,9 +238,9 @@ public class Practice {
      * @param message az eredeti karaktersorozat
      * @return az eredeti üzenet karakterei fordított sorrendben
      */
-    public static char[] reverseMessage(char[] message) {
-        return null;
-    }
+ //   public static char[] reverseMessage(char[] message) {
+   //     return null;
+   // }
 
     /**
      * 9. feladat - 5p
@@ -220,9 +270,9 @@ public class Practice {
      * @param lossesPerMonths a veszteségek hónaponként összegyűjtve
      * @return a legtöbb veszteséget tartalmazó hónap index-száma
      */
-    public static int getWorstMonthIndex(int[][] lossesPerMonths) {
-        return -1;
-    }
+   // public static int getWorstMonthIndex(int[][] lossesPerMonths) {
+     //   return -1;
+   // }
 
     /**
      * 10. feladat - 5p
@@ -247,9 +297,9 @@ public class Practice {
      * @param shipNames az űrhajók neve
      * @param shipPowers az űrhajók ereje
      */
-    public static void sortShipsByPower(String[] shipNames, int[] shipPowers) {
+  //  public static void sortShipsByPower(String[] shipNames, int[] shipPowers) {
 
-    }
+    //}
 
     // --------------------------------------------------------------------------------------
 
@@ -292,8 +342,6 @@ public class Practice {
      * @param t2 a második hajó teleportálási távolsága egy teleportálásból
      * @return fognak-e harcolni
      */
-    public static boolean willTheyFight(int s1, int t1, int s2, int t2) {
-        return false;
-    }
-
+  //  public static boolean willTheyFight(int s1, int t1, int s2, int t2) {
+    //    return false;
 }
