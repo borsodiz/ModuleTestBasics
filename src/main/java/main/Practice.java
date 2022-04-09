@@ -259,7 +259,7 @@ public class Practice {
    public static char[] reverseMessage(char[] message) {
        char [] clone = message.clone();
        char temporary = 0;
-       for (int i = 0; i < clone.length; i++) {
+       for (int i = 0; i < clone.length/2; i++) {
 
            temporary = clone[i];
            clone[i] = clone[clone.length-1-i];
@@ -269,6 +269,7 @@ public class Practice {
 
        return clone;
     }
+
 
     /**
      * 9. feladat - 5p
@@ -298,9 +299,24 @@ public class Practice {
      * @param lossesPerMonths a veszteségek hónaponként összegyűjtve
      * @return a legtöbb veszteséget tartalmazó hónap index-száma
      */
-   // public static int getWorstMonthIndex(int[][] lossesPerMonths) {
-     //   return -1;
-   // }
+    public static int getWorstMonthIndex(int[][] lossesPerMonths) {
+
+     //   for (int j = 0; j < lossesPerMonths.length; j++) {
+
+
+            int sumOfMonth = 0;
+            for (int i = 0; i < lossesPerMonths.length; i++) {
+
+                if (lossesPerMonths[0][i] != 0) {
+                    sumOfMonth += lossesPerMonths[0][i];
+                }
+                return sumOfMonth;
+
+
+            }
+            return -1;
+        }
+    }
 
     /**
      * 10. feladat - 5p
@@ -372,4 +388,3 @@ public class Practice {
      */
   //  public static boolean willTheyFight(int s1, int t1, int s2, int t2) {
     //    return false;
-}
