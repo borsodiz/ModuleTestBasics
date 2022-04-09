@@ -224,9 +224,16 @@ public class Practice {
      *
      * @param heights a kadétok magassága
      */
-  //  public static boolean isInAscendingOrder(int[] heights) {
-    //    return false;
-    //}
+    public static boolean isInAscendingOrder(int[] heights) {
+        for (int i = 0; i < heights.length-1; i++) {
+            if (heights[i] < heights[i+1]) {
+                return true;
+
+            }
+
+        }
+        return false;
+    }
 
     /**
      * 8. feladat - 4p
@@ -249,9 +256,19 @@ public class Practice {
      * @param message az eredeti karaktersorozat
      * @return az eredeti üzenet karakterei fordított sorrendben
      */
- //   public static char[] reverseMessage(char[] message) {
-   //     return null;
-   // }
+   public static char[] reverseMessage(char[] message) {
+       char [] clone = message.clone();
+       char temporary = 0;
+       for (int i = 0; i < clone.length; i++) {
+
+           temporary = clone[i];
+           clone[i] = clone[clone.length-1-i];
+           clone[clone.length-1-i] = temporary;
+
+       }
+
+       return clone;
+    }
 
     /**
      * 9. feladat - 5p
