@@ -36,34 +36,27 @@ public class Practice {
      * @return a pajzs ereje
      */
     public static int getShieldPower(String shipClass) {
+        int result = 0;
         switch (shipClass) {
             case "Intrepid":
-                return 100;
-
-
+                result = 100;
+                break;
             case "Nova":
-                return 200;
-
-
+                result = 200;
+                break;
             case "Raven":
-                return 300;
-
-
-            case "Glaxy":
-                return 500;
-
-
+                result = 300;
+                break;
+            case "Galaxy":
+                result = 500;
+                break;
             case "Dreadnought":
-                return 800;
-
-
-            default:
-                return -1;
-
+                result = 800;
+                break;
 
         }
+        return result;
     }
-
 
     /**
      * 2. feladat - 2p
@@ -82,12 +75,8 @@ public class Practice {
      * @return az elvárt szint
      */
     public static double countRequirement(int[] scores) {
-        return (scores[0] + scores[scores.length-1])/2;
+        return (double) (scores[0] + scores[scores.length-1])/2;
     }
-
-
-
-
 
     /**
      * 3. feladat - 3p
@@ -107,10 +96,13 @@ public class Practice {
      * @return a hajó harcképes-e
      */
     public static boolean isShipAbleToFight(int shieldCharge, int weaponCharge) {
-        if (shieldCharge > 20 && weaponCharge > 20 && ((shieldCharge + weaponCharge)) / 2 > 50) {
-            return true;
+        boolean isShip = false;
+        if ((shieldCharge > 20) && (weaponCharge > 20) && (((shieldCharge + weaponCharge) / 2 )> 50)) {
+           isShip = true;
+        } else {
+            isShip = false;
         }
-        return false;
+        return isShip;
     }
 
 
@@ -224,51 +216,57 @@ public class Practice {
      *
      * @param heights a kadétok magassága
      */
-    public static boolean isInAscendingOrder(int[] heights) {
-        for (int i = 0; i < heights.length-1; i++) {
-            if (heights[i] < heights[i+1]) {
-                return true;
+   public static boolean isInAscendingOrder(int[] heights) {
+       boolean yes = false;
 
-            }
+           for (int i = 0; i < heights.length - 1; i++) {
 
-        }
-        return false;
-    }
+               if (heights[i] < heights[i + 1]) {
+                   yes = true;
+               } else {
+                   yes = false;
+               }
+           }
+       return yes;
+   }
 
-    /**
-     * 8. feladat - 4p
-     *
-     * A Földi Hírszerzőközpont rejtélyes üzeneteket hallgat le.
-     * Az üzenetek mindig érelmetlen karaktersorozatból állnak.
-     * Az egyik kódfejtő azzal az ötlettel áll elő, hogy az üzeneteket
-     * meg lehetne fejteni, ha megfordítják őket - azaz hátulról visszafelé olvassák el.
-     *
-     * Valósítsd meg a "reverseMessage" nevű metódust!
-     * A metódus fordítsa meg az üzenet karaktereit: az eredeti üzenet utolsó karaktere
-     * legyen az első, az utolsó előtti a második stb.
-     *
-     * Például:
-     *      eredeti üzenet: ['a', 'b', 'c', 'd', 'e']
-     *      megfordítva:    ['e', 'd', 'c', 'b', 'a']
-     *
-     * Ügyelj arra, hogy az eredeti üzenet ne módosuljon!
-     *
-     * @param message az eredeti karaktersorozat
-     * @return az eredeti üzenet karakterei fordított sorrendben
-     */
-   public static char[] reverseMessage(char[] message) {
-       char [] clone = message.clone();
-       char temporary = 0;
-       for (int i = 0; i < clone.length/2; i++) {
 
-           temporary = clone[i];
-           clone[i] = clone[clone.length-1-i];
-           clone[clone.length-1-i] = temporary;
+       /**
+        * 8. feladat - 4p
+        *
+        * A Földi Hírszerzőközpont rejtélyes üzeneteket hallgat le.
+        * Az üzenetek mindig érelmetlen karaktersorozatból állnak.
+        * Az egyik kódfejtő azzal az ötlettel áll elő, hogy az üzeneteket
+        * meg lehetne fejteni, ha megfordítják őket - azaz hátulról visszafelé olvassák el.
+        *
+        * Valósítsd meg a "reverseMessage" nevű metódust!
+        * A metódus fordítsa meg az üzenet karaktereit: az eredeti üzenet utolsó karaktere
+        * legyen az első, az utolsó előtti a második stb.
+        *
+        * Például:
+        *      eredeti üzenet: ['a', 'b', 'c', 'd', 'e']
+        *      megfordítva:    ['e', 'd', 'c', 'b', 'a']
+        *
+        * Ügyelj arra, hogy az eredeti üzenet ne módosuljon!
+        *
+        * @param message az eredeti karaktersorozat
+        * @return az eredeti üzenet karakterei fordított sorrendben
+        */
 
+       public static char[] reverseMessage (char[] message) {
+           char[] clone = message.clone();
+           char temporary = 0;
+           for (int i = 0; i < clone.length / 2; i++) {
+
+               temporary = clone[i];
+               clone[i] = clone[clone.length - 1 - i];
+               clone[clone.length - 1 - i] = temporary;
+
+           }
+
+           return clone;
        }
 
-       return clone;
-    }
 
 
     /**
@@ -301,21 +299,22 @@ public class Practice {
      */
     public static int getWorstMonthIndex(int[][] lossesPerMonths) {
 
-        int worst =0;
+        int worst = 0;
+        int sumOfMonth = 0;
 
-            for (int i = 0; i < lossesPerMonths.length; i++) {
-                int sumOfMonth = 0;
-                for (int j = 0; j < lossesPerMonths[i].length; j++) {
-                    sumOfMonth += lossesPerMonths[i][j];
-                }
-                    if (sumOfMonth> worst) {
-                        worst =sumOfMonth;
-                    }
-                }
+        for (int i = 0; i < lossesPerMonths.length; i++) {
 
-                return worst;
+            for (int j = 0; j < lossesPerMonths[i].length; j++) {
+                sumOfMonth += lossesPerMonths[i][j];
+            }
+            if (sumOfMonth > worst) {
+                worst = sumOfMonth;
+            }
 
+            return worst;
         }
+        return 0;
+    }
 
     /**
      * 10. feladat - 5p
@@ -412,3 +411,5 @@ public class Practice {
         return false;
         }
 }
+
+
