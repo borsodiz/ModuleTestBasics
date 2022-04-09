@@ -316,7 +316,6 @@ public class Practice {
                 return worst;
 
         }
-    }
 
     /**
      * 10. feladat - 5p
@@ -341,11 +340,34 @@ public class Practice {
      * @param shipNames az űrhajók neve
      * @param shipPowers az űrhajók ereje
      */
-  //  public static void sortShipsByPower(String[] shipNames, int[] shipPowers) {
+   public static void sortShipsByPower(String[] shipNames, int[] shipPowers) {
+       int swapPower =0;
+       String swapName = null;
 
-    //}
+       for (int j = 0; j < shipPowers.length; j++) {
 
-    // --------------------------------------------------------------------------------------
+
+       for (int i = 0; i < shipPowers.length-1; i++) {
+           if (shipPowers[i] < shipPowers[i + 1]) {
+               swapPower = shipPowers[i];
+               swapName = shipNames[i];
+
+               shipPowers[i] = shipPowers[i + 1];
+               shipNames[i] = shipNames[i + 1];
+
+               shipPowers[i + 1] = swapPower;
+               shipNames[i + 1] = swapName;
+
+           }
+       }
+
+           }
+           for (int i = 0; i < shipPowers.length; i++) {
+               System.out.println(shipNames[i]);
+       }
+       }
+
+    //--------------------------------------------------------------------------------------
 
     /**
      * Bónusz feladat - 5p
@@ -386,5 +408,7 @@ public class Practice {
      * @param t2 a második hajó teleportálási távolsága egy teleportálásból
      * @return fognak-e harcolni
      */
-  //  public static boolean willTheyFight(int s1, int t1, int s2, int t2) {
-    //    return false;
+   public static boolean willTheyFight(int s1, int t1, int s2, int t2){
+        return false;
+        }
+}
