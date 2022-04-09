@@ -301,20 +301,20 @@ public class Practice {
      */
     public static int getWorstMonthIndex(int[][] lossesPerMonths) {
 
-     //   for (int j = 0; j < lossesPerMonths.length; j++) {
+        int worst =0;
 
-
-            int sumOfMonth = 0;
             for (int i = 0; i < lossesPerMonths.length; i++) {
-
-                if (lossesPerMonths[0][i] != 0) {
-                    sumOfMonth += lossesPerMonths[0][i];
+                int sumOfMonth = 0;
+                for (int j = 0; j < lossesPerMonths[i].length; j++) {
+                    sumOfMonth += lossesPerMonths[i][j];
                 }
-                return sumOfMonth;
+                    if (sumOfMonth> worst) {
+                        worst =sumOfMonth;
+                    }
+                }
 
+                return worst;
 
-            }
-            return -1;
         }
     }
 
