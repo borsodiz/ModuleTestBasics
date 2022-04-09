@@ -194,10 +194,21 @@ public class Practice {
      * @return a megnyert csaták darabszáma
      */
    public static int countVictories(int[] battles) {
+       int win =0;
+       int lost =0;
+       int draw =0;
+       for (int i = 0; i < battles.length; i++) {
+           if (battles[i] > 0) {
+               win ++;
+           } else if (battles[i] < 0) {
+               lost++;
+           } else  {
+               draw ++;
+           }
 
+       }
 
-
-        return -1;
+        return win;
    }
 
     /**
